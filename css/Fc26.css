@@ -1,0 +1,794 @@
+/* Start Components */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+*,*::before,*::after { 
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+:root{ 
+    --padding-top:60px;
+    --padding-bottom:60px;
+}
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+}
+body {
+    font-family: "DM Sans", sans-serif;
+}
+.container { 
+    padding-left: 15px; 
+    padding-right: 15px;
+    margin-left: auto;  
+    margin-right: auto;
+}
+@media (min-width: 768px) { 
+    .container { 
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container { 
+        width: 970px;
+    }
+}
+
+
+@media (min-width: 1200px) { 
+    .container { 
+        width: 1170px;
+    }
+}
+li {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+}
+/* End Components */
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 1000;
+    transition: height 0.4s linear;
+    background-color: black;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header.active {
+    background-color: #111;
+    height: 72px;
+    animation: slide-in 0.5s ease;
+}
+@keyframes slide-in {
+    from{
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.header .container .logo a img {
+    filter: grayscale(100%);
+    transition: 0.3s filter ease,0.5s transform linear;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+}
+
+.header .container .logo a img:hover{
+    filter: unset;
+    transform: rotate(3deg);
+}
+.header .container .main-nav ul li a {
+    font-size: 2rem;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+.header .container .main-nav ul li a::before{
+    content: "";
+    width: 0%;
+    height: 5%;
+    background-color: greenyellow;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: 0.3s width linear;
+}
+.header .container .main-nav ul li a:hover::before{
+width: 100%;
+}
+/* Start Landing */
+main .landing {
+  position: relative;
+  z-index: 2;
+  background-image: url("../assets/images/fc26.png");
+height: 100vh;
+background-size: cover;
+
+}
+main .landing::before{
+    content: "";
+    background-image: url("../assets/images/bg-hexagones.webp");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+main .landing::after{ 
+    content: "";
+    background-color: rgb(0 0 0 / 60%);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+main .landing .container {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: white;
+    position: relative;
+    font-size: 2rem;
+    z-index: 2;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s linear;
+margin-top: 5rem;
+}
+
+.pop-up {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(0 0 0 / 50%);
+    z-index: 111111;
+color: white;
+font-size: 2rem;
+display: none;
+}
+.pop-up h3 {
+    margin: 10px 0;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+.pop-up p {
+line-height: 2;
+}
+.pop-up button{ 
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    background-color: red;
+    color: white;
+    font-size: 50px;
+}
+
+
+main .landing .container.show{ 
+    opacity: 1;
+    transform: translateY(0);
+}
+main .landing .container h1 {
+    font-size: 5rem;
+    border-bottom: 1px solid #f9f9f9;
+    line-height: 1.7;
+
+}
+main .landing .container h1:hover::before{
+    height: 100%;
+}
+
+main .landing .container p {
+    font-size: 2.5rem;
+    line-height: 1.5;
+}
+main .landing .container .btn { 
+    background-color: black;
+    padding: 1rem 1.5rem;
+    display: block;
+    width: fit-content;
+    margin: auto;
+    color: white;
+    border-radius: 0.4rem;
+    position: relative;
+    z-index: 1;
+    margin-top: 1rem;
+    font-size: 3rem;
+}
+main .landing .container .btn::before{
+    content: "";
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #2ecc71;
+    z-index: -1;
+    transition: 0.5s linear width;
+    
+}
+main .landing .container .btn:hover::before{
+    width: 100%;
+}
+@media(max-width:767px){
+    main .landing .container h1 {
+        font-size: 1.7rem;
+    }
+main .landing .container p {
+    font-size: 1.2rem;
+}
+main .landing .container .btn {
+    font-size: 1.5rem;
+}
+}
+@media(min-width:768px )and (max-width: 992px) {
+main .landing .container h1 {
+    font-size: 3rem;
+    border-bottom: 1px solid #f9f9f9;
+    line-height: 1.7;
+}
+main .landing .container p {
+    font-size: 1.5rem;
+
+}
+}
+/* End Landing */
+/* Cheat-hack Section */
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Styles */
+main .cheat-hack .container .text h3,
+main .cheat-hack .container .text p,
+main .cheat-hack .container .text video {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.6s ease;
+}
+.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+main .cheat-hack {
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+ /* background: linear-gradient(135deg, #0d0d0d, #1f1f1f);    color: #f9f9f9; */
+ background-color: black;
+color: #f9f9f9;
+}
+main .cheat-hack .container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+main .cheat-hack .container video {
+    pointer-events: none;
+    object-fit: cover;
+    width: 500px;
+    max-width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+transition-delay: 0.3s;
+}
+main .cheat-hack .container .text {
+    flex: 1;
+    z-index: 2;
+}
+main .cheat-hack .container .text  h2 { 
+    font-size: 2.5rem;
+}
+
+main .cheat-hack .container .text p {
+     font-size: 1.6rem;
+     line-height: 2;
+     margin-bottom: 2rem;
+     padding-bottom: 1rem;
+}
+main .cheat-hack .container .text p:nth-of-type(1){ 
+    border-bottom: 1px solid #f9f9f9;
+    transition-delay: 0.4s;
+}
+main .cheat-hack .container .text p:nth-of-type(2){ 
+transition-delay: 0.6s;
+}
+@media(max-width:991px){ 
+    main .cheat-hack .container { 
+        /* flex-direction: column; */
+        text-align: center;
+        flex-direction: column-reverse;
+    }
+    main .cheat-hack .container video { 
+        width: 100%;
+    }
+    main .cheat-hack .container .text h3 { 
+        font-size: 4rem;
+    }
+}
+/* End Section Style */
+/* ************* start Testi */
+.testimonials {
+  padding: 40px 3px;
+  background: #111;
+  color: #fff;
+  text-align: center;
+}
+
+.testimonials h3 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.testimonial-wrapper {
+  position: relative;       /* Needed for absolute arrow positioning */
+  max-width: 500px;         /* Match slider max-width */
+  margin: 0 auto;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: transparent;
+  color: #0f0;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 10;
+  user-select: none;
+}
+
+.arrow.left {
+  left: -40px; /* Adjust distance from slider */
+}
+
+.arrow.right {
+  right: -40px; /* Adjust distance from slider */
+}
+
+.arrow:hover {
+  color: #fff;
+}
+
+.testimonial-slider {
+  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+/* Testimonial slides fade in/out */
+.testimonial-slide {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  width: 100%;
+}
+
+.testimonial-slide.active {
+  display: block;
+  opacity: 1;
+}
+
+.testimonial-slide blockquote {
+  font-size: 2rem;
+  padding: 20px;
+  border-left: 4px solid #0f0;
+  background: #1c1c1c;
+  margin: 0;
+}
+
+.testimonial-slide cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  color: #aaa;
+  font-size: 2rem;
+}
+
+
+/* ***************** End Testi */
+/* Start Pricing */
+main .pricing {
+padding-top: var(--padding-top);
+padding-bottom: var(--padding-bottom);
+background-color: #0d0d0d;
+color: white;
+text-align: center;
+background-image: url("../assets/images/photo-1543351611-58f69d7c1781.avif");
+position: relative;
+}
+main .pricing::before{ 
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 70%);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+main .pricing .text {
+text-align: center;
+position: relative;
+}
+main .pricing .text h3 {
+font-size: 2rem;
+margin: 0;
+padding: 0;
+  min-height: 1.5em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+main .pricing .text p {
+font-size: 2rem;
+position: relative;
+width: fit-content;
+margin: 4rem auto;
+}
+main .pricing .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 30px;
+    position: relative;
+}
+main .pricing .container .box{ 
+ box-shadow: 0 0 10px green;
+  background-color: black;
+  transition: 0.3s ease background-color, 0.3s ease box-shadow;
+  border-radius: 6px;
+}
+main .pricing .container .box:hover {
+  animation: flash 0.3s ease forwards;
+  box-shadow: 0 0 20px #4caf50;
+}
+
+main .pricing .container .box ul li:first-child{
+font-weight: bold;
+
+}
+main .pricing .container .box ul li:nth-child(2)::before{
+content: "$";
+position: absolute;
+left: 0;
+}
+main .pricing .container .box ul li:nth-child(2){
+    width: fit-content;
+    margin: auto;
+}
+main .pricing .container .box ul li {
+    padding: 20px;
+    font-size: 2rem;
+    position: relative;
+}
+main .pricing .container .btn{ 
+    display: block;
+    padding: 15px 20px;
+    font-size: 2rem;
+    margin: 20px auto;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: #27ae60;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+}
+main .pricing .container .btn::before{ 
+    content: "";
+    background-color: #2ecc71;
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: 0.3s linear width;
+border-radius: 5px;
+}
+main .pricing .container .btn:hover::before{ 
+    width: 100%;
+}
+@media(max-width:767px){ 
+    .none {
+        display: none;
+    }
+}
+/* Slide */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px,1px,1px,1px);
+  white-space: nowrap;
+}
+.Slide-ani {
+    color: white;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    /* background-image: url("../assets/images/stars1.png"); */
+    background-image: url("../assets/images/fc26.png");
+    background-size: cover;
+    background-position: center;
+}
+.Slide-ani::before{ 
+content: "";
+position: absolute;
+/* z-index: 1; */
+width: 100%;
+height: 100%;
+background-color: rgb(0 0 0 / 80%);
+z-index: -1;
+left: 0;
+top: 0;
+}
+.Slide-ani .container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.Slide-ani .container p {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 2rem;
+    animation: slide 50s linear infinite;
+    margin: 0;
+}
+
+.Slide-ani .container p:hover {
+    animation-play-state: paused;
+}
+
+@keyframes slide {
+    0% {
+        /* transform: translateX(100%); */
+         transform: translateX(-100%);
+    }
+    100% {
+       transform: translateX(100%);
+    }
+}
+
+/* Slide */
+/* End Pricing */
+/* Start Features */
+main .features { 
+    padding-top:var(--padding-top) ;
+    padding-bottom: var(--padding-bottom);
+    position: relative;
+}
+
+main .features::before {
+position: absolute;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+content: "";
+ z-index:1;
+background-image: url("../assets/images/center-left-effect.png");
+background-position: center;
+}
+main .features::after {
+content: "";
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+position: absolute;
+background-color: #000;
+z-index: -1;
+}
+
+main .features .container {
+    position: relative;
+    z-index: 12;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-direction: column;
+}
+main .features .container .box {
+background-color: black;
+padding: 2rem;
+border-radius: 5px;
+box-shadow: 0 0 10px green;
+position: relative;
+z-index: 1;
+transition: 0.5s;
+color: white;
+}
+
+main .features .container .box::before{ 
+    content: "";
+    width: 100%;
+    height: 0%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #111;
+    z-index: -1;
+    transition: 0.3s linear;
+}
+
+
+main .features .container .box:hover::before {
+height: 100%;
+}
+main .features .container .box:hover{ 
+    transform: translateY(10px);
+}
+main .features .container .box .text {
+text-align: center;
+}
+main .features .container .box .text h3{ 
+font-size: 3.5rem;
+
+}
+main .features .container .box .text p {
+font-size: 2rem;
+line-height: 1.8;
+border-top: 1px solid white;
+margin: 1rem;
+}
+main .features .container .box .text ol li {
+    font-size: 2rem;
+    border-top: 1px solid white;
+}
+/* End Features */
+/* why Cheat Army */
+.why {
+padding-top: var(--padding-top);
+padding-bottom: var(--padding-bottom);
+position: relative;
+z-index: 22;
+background-image: url("../assets/images/fc26.png");
+background-size: cover;
+background-position: center;
+color: white;
+text-shadow: 1px 1px 2px #000;
+overflow: hidden;
+}
+
+.why::before {
+   content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url("../assets/images/stars1.png");
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  opacity: 0.2;
+}
+.why::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 70%);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -2;
+}
+.why .container {
+    position: relative;
+    z-index: 2;
+}
+.why h4 { 
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 2px solid #2ecc71;
+    padding-bottom: 1rem;
+}
+
+.why h3 {
+    font-size: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: #2ecc71;
+    position: relative;
+}
+.why h3::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background: #27ae60;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
+.why p{ 
+    font-size: 1.8rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+.why ul {
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+.why ul li {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.7rem;
+      background-color: rgba(255, 255, 255, 0.05);
+        border-left: 4px solid #2ecc71;
+          transition: background-color 0.3s ease;
+}
+.why ul li:hover {
+  background-color: rgba(46, 204, 113, 0.15);
+}
+footer {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+font-size: 2.5rem;
+}
+
+footer p span { 
+    color: green;
+}
+footer .promise{
+    display: block;
+    margin-top: 1rem;
+}
+@media (max-width: 768px) {
+  .why h4 {
+    font-size: 2.5rem;
+  }
+  .why h3 {
+    font-size: 2.2rem;
+  }
+  .why p,
+  .why ul li {
+    font-size: 1.4rem;
+  }
+}
+/* End Why Cheat Army */
